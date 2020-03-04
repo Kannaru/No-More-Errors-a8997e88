@@ -8,9 +8,7 @@ check($restbedrag);
 function check($restbedrag){
     echo !is_numeric($restbedrag);
     try{
-
-
-        if( !is_numeric($restbedrag) || $restbedrag == "" || $restbedrag == null) {
+        if(!is_numeric($restbedrag) || $restbedrag == "" || $restbedrag == null) {
             throw new Exception("Je hebt geen bedrag meegegeven dat omgewisseld kan worden");
         }
         if($restbedrag <= 0) {
@@ -18,10 +16,10 @@ function check($restbedrag){
         }
         $restbedrag = euros($restbedrag) * 100;
         cents($restbedrag);
-}
-catch(Exception $e){
-    echo $e->getMessage();
-}
+    }
+    catch(Exception $e){
+   echo $e->getMessage();
+    }
 }
 
 
